@@ -4,9 +4,9 @@
 
 ## Description
 
-The backend was built using the ExpressJS framework along with the Model-View-Controller (MVC) architecture pattern.
+The backend was built using the ExpressJS framework along with the Model-View-Controller (MVC) architecture pattern. This architecture separates the data management (the "model"), user interface (the "view"), and control flow (the "controller").
 
-The MVC pattern was chosen as it complements the REST api methodology.
+It was chosen as it provides easier to understand and maintain code, along with the added benefit of ease of ability in testing and extendeding the functionality of the application, if needed. Furthermore, it organises the routes and handlers in a logical and maintainable format.
 
 ## Lessons learned
 
