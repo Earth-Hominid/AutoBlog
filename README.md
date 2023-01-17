@@ -8,7 +8,11 @@ The backend was built using the ExpressJS framework along with the Model-View-Co
 
 It was chosen as it provides easier to understand and maintain code, along with the added benefit of ease of ability in testing and extendeding the functionality of the application, if needed. Furthermore, it organises the routes and handlers in a logical and maintainable format.
 
+## Backend Security
+
 Authentication provided by confirming user is in the database, while authorization is confirmed using JSON Web tokens to protect backend routes.
+
+User passwords are first hashed using bcryptjs and then saved in the database as a hashed password.
 
 ## Lessons learned
 
