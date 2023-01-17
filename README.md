@@ -34,6 +34,18 @@ const errorHandler = (error, req, res, next) => {
 module.exports = { errorHandler };
 ```
 
+When interacting with our database using Mongoose, we will be recieving back a 'Promise', thus we need to use 'async/await'.
+
+The Express-Async-Handler package is quite useful as we can use async/await without the extra boilerplate of 'try/catch'. We simply bring in the package and wrap the function with the handler:
+
+```js
+const asyncHandler = require('express-async-handler');
+
+const getBlogs = asyncHandler(async (req, res) => {
+  res.status(200).json({ message: 'Get blogs' });
+});
+```
+
 ### Dependencies
 
 - [Express](https://expressjs.com/)
@@ -41,3 +53,4 @@ module.exports = { errorHandler };
 - [Mongoose](https://mongoosejs.com/)
 - [Colors](https://www.npmjs.com/package/colors)
 - [Nodemon](www.npmjs.com/package/nodemon)
+- [Express-Async-Handler](https://www.npmjs.com/package/express-async-handler)
