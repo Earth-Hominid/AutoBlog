@@ -98,5 +98,5 @@ const protectRoute = asyncHandler(async (req, res, next) => {
 - [Colors](https://www.npmjs.com/package/colors)
 - [Nodemon](www.npmjs.com/package/nodemon)
 - [Express-Async-Handler](https://www.npmjs.com/package/express-async-handler)
-- [JSONWebtoken](https://jwt.io/)
-- [BCrypt](https://www.npmjs.com/package/bcrypt)
+- [JSON Webtokens](https://jwt.io/)
+- [B-Crypt](https://www.npmjs.com/package/bcrypt)
