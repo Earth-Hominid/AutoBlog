@@ -1,14 +1,16 @@
 # AutoBlog
 
-## A free platform to create and host your own blog.
+### A free platform to create and host your own blog.
 
-### Description
+## Description
 
 The backend was built using the ExpressJS framework along with the Model-View-Controller (MVC) architecture pattern.
 
 The MVC pattern was chosen as it complements the REST api methodology.
 
-### Intereting lessons learned
+## Lessons learned
+
+#### Middleware
 
 Using Express's built in middleware function 'urlencoded' allows incoming requests with urlencoded payloads to be parsed. The parsed data is populated on the request object (req.body) and it contains key-value pairs which can either be a string or an array when 'extended' is set to false.
 
@@ -17,7 +19,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 ```
 
-I was able to overwrite the Express error handler with my own middleware function. It is set only for production, and returns the error message and the stack. If the server is set to production, the stack will return 'null'.
+#### Error handling
+
+I was able to overwrite the Express error handler with my own middleware function. When set to 'development' it will return the error message and the stack, when server is set to 'production', only the message is returned.
 
 ```js
 const errorHandler = (error, req, res, next) => {
@@ -33,6 +37,8 @@ const errorHandler = (error, req, res, next) => {
 
 module.exports = { errorHandler };
 ```
+
+#### Async/Await with Mongoose Promise
 
 When interacting with our database using Mongoose, we will be recieving back a 'Promise', thus we need to use 'async/await'.
 
