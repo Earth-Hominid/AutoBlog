@@ -8,6 +8,10 @@ The backend was built using the ExpressJS framework along with the Model-View-Co
 
 It was chosen as it provides easier to understand and maintain code, along with the added benefit of ease of ability in testing and extendeding the functionality of the application, if needed. Furthermore, it organises the routes and handlers in a logical and maintainable format.
 
+MongoDB (a NoSQL database) was chosen because it can handle large numbers of read and write operations in parallel, which makes it well-suited for use cases with high write loads such as a content management system.
+
+Another benefit MongoDB provides over a SQL database, is it's design, which allows it to handle large amounts of unstructured data, making it more flexible and scalable.
+
 ## Backend Security
 
 Authentication provided by confirming user is in the database, while authorization is confirmed using JSON Web tokens to protect backend routes.
