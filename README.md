@@ -8,6 +8,8 @@ The backend was built using the ExpressJS framework along with the Model-View-Co
 
 It was chosen as it provides easier to understand and maintain code, along with the added benefit of ease of ability in testing and extendeding the functionality of the application, if needed. Furthermore, it organises the routes and handlers in a logical and maintainable format.
 
+Authentication provided by confirming user is in the database, while authorization is confirmed using JSON Web tokens to protect backend routes.
+
 ## Lessons learned
 
 #### Middleware
@@ -19,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 ```
 
-#### Error handling
+#### Error Handling Middleware
 
 I was able to overwrite the Express error handler with my own middleware function. When set to 'development' it will return the error message and the stack, when server is set to 'production', only the message is returned.
 
@@ -52,6 +54,42 @@ const getBlogs = asyncHandler(async (req, res) => {
 });
 ```
 
+#### Authentication Route Protection Middleware
+
+Utilizing JSON Webtokens, we can write a function that that protects our routes by checking that our headers have the authorization object and they start with 'Bearer' and the token.
+
+```js
+const protectRoute = asyncHandler(async (req, res, next) => {
+  let token;
+
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    try {
+      // Get token from header
+      token = req.headers.authorization.split(' ')[1];
+
+      // Verify token
+      const verifyTheToken = jwt.verify(token, process.env.JWT_SECRET);
+
+      // Get user from the token
+      req.user = await User.findById(verifyTheToken.id).select('-password');
+
+      next();
+    } catch (error) {
+      console.log(error);
+      res.status(401);
+      throw new Error('Not authorized');
+    }
+  }
+  if (!token) {
+    res.status(401);
+    throw new Error('Not authorized, no token');
+  }
+});
+```
+
 ### Dependencies
 
 - [Express](https://expressjs.com/)
@@ -60,3 +98,5 @@ const getBlogs = asyncHandler(async (req, res) => {
 - [Colors](https://www.npmjs.com/package/colors)
 - [Nodemon](www.npmjs.com/package/nodemon)
 - [Express-Async-Handler](https://www.npmjs.com/package/express-async-handler)
+- [JSONWebtoken](https://jwt.io/)
+- [BCrypt](https://www.npmjs.com/package/bcrypt)
