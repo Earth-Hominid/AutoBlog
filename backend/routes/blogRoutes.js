@@ -7,12 +7,7 @@ const {
   deleteBlog,
 } = require('../controllers/blogController');
 
-router.get('/', getBlogs);
-
-router.post('/', setBlog);
-
-router.put('/:id', updateBlog);
-
-router.delete('/:id', deleteBlog);
+router.route('/').get(getBlogs).post(setBlog);
+router.route('/:id').put(updateBlog).delete(deleteBlog);
 
 module.exports = router;

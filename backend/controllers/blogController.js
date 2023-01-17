@@ -7,7 +7,7 @@ const getBlogs = (req, res) => {
 };
 
 // Create blog
-// Post api/blogs
+// POST api/blogs
 // Private access
 
 const setBlog = (req, res) => {
@@ -15,7 +15,7 @@ const setBlog = (req, res) => {
 };
 
 // Update blog
-// PUT api/blogs
+// PUT api/blogs/:id
 // Private access
 
 const updateBlog = (req, res) => {
@@ -23,7 +23,7 @@ const updateBlog = (req, res) => {
 };
 
 // Delete blog
-// Delete api/blogs
+// DELETE api/blogs/:id
 // Private access
 
 const deleteBlog = (req, res) => {
