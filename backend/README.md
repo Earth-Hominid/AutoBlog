@@ -8,3 +8,4 @@
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Mongoose](https://mongoosejs.com/)
 - [Colors](https://www.npmjs.com/package/colors)
+- [Nodemon](www.npmjs.com/package/nodemon)
