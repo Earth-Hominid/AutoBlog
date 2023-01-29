@@ -7,8 +7,10 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js"
+    "serverstart": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "yarn --cwd ./fe start",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "author": "Chris Doll",
   "license": "MIT",
