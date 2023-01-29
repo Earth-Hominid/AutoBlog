@@ -132,6 +132,12 @@ const protectRoute = asyncHandler(async (req, res, next) => {
 
 Slice files contain logic, while the service files contain HTTP requests, sending data, and setting data in local storage. Axios is used for HTTP requests from the client-side (frontend).
 
+In order to obtain the 'user' from local storage (if they have previously logged in) with the JSON Webtoken, we need to use JSON.parse as local storage only stores strings:
+
+```js
+const user = JSON.parse(localStorage.getItem('user'));
+```
+
 ### Dependencies
 
 #### Server-Side / Backend
