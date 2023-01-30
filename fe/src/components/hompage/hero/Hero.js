@@ -1,7 +1,16 @@
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { reset } from '../../../features/auth/authSlice';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const Hero = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
 
   const goToSignInPage = () => {
     navigate('/login');
