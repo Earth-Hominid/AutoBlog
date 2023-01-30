@@ -9,7 +9,7 @@
   "scripts": {
     "serverstart": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "yarn --cwd ./fe start",
+    "client": "yarn --cwd ./frontend start",
     "dev": "concurrently \"yarn server\" \"yarn client\""
   },
   "author": "Chris Doll",
