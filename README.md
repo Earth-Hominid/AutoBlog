@@ -24,7 +24,7 @@ The server is written with Express. User details and blog entries are saved in a
 
 The backend was built using the ExpressJS framework along with the Model-View-Controller (MVC) architecture pattern. This architecture separates the data management (the "model"), user interface (the "view"), and control flow (the "controller").
 
-It was chosen as it provides easier to understand and maintain code, along with the added benefit of ease of ability in testing and extendeding the functionality of the application, if needed. Furthermore, it organises the routes and handlers in a logical and maintainable format.
+MVC was chosen because it offers code which is easier to understand and maintain, along with the added benefit of ease of ability in testing and extending the functionality of the application, if needed. Furthermore, it organises the routes and handlers in a logical and maintainable format.
 
 MongoDB (a NoSQL database) was chosen because it can handle large numbers of read and write operations in parallel, which makes it well-suited for use cases with high write loads such as a content management system.
 
