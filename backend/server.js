@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv').config();
 const colors = require('colors');
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/blogs', require('./routes/blogRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use(errorHandler);
+app.use(cors());
 
 // Server frontend
 if (process.env.NODE_ENV === 'production') {
