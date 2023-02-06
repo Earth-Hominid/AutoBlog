@@ -7,7 +7,7 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "serverstart": "node backend/server.js",
+    "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "yarn --cwd ./frontend start",
     "dev": "concurrently \"yarn server\" \"yarn client\""
